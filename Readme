@@ -1,0 +1,28 @@
+# SCM (Smart Contacts Manager) 
+
+This project is a **Smart Contacts Manager (SCM)** system built with **Spring Boot**. It provides functionality to manage users, contacts, and various other SCM-related entities. The system includes features such as user registration, user management, and more.
+
+## Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+
+
+## Features
+
+- **User Management**: Create, read, update, and delete (CRUD) operations for users.
+- **Contact Management**: Manage user contacts with one-to-many relationships.
+- **Authentication**: User authentication and authorization with roles.
+- **Profile Management**: Users can manage their profile information.
+- **Dark Mode**: Theme switching between light and dark mode.
+- **Exception Handling**: Custom exception handling for resource not found scenarios.
+
+## Technologies Used
+
+- **Spring Boot**: For building the backend services.
+- **Thymeleaf**: For server-side rendering of web pages.
+- **Lombok**: To reduce boilerplate code (getters, setters, constructors, etc.).
+- **H2 Database**: In-memory database for testing and development.
+- **SLF4J with Logback**: For logging.
+- **Flowbite**: For UI components and styling.
+- **Font Awesome**: For icons.
