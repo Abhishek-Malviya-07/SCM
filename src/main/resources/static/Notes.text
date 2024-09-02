@@ -1,0 +1,6 @@
+
+  How to add tailwind and flowbite in HTML file.
+     1. Run command 
+         npx tailwindcss -i ./src/main/resources/static/css/input.css -o ./src/main/resources/static/css/output.css --watch
+     2. Include output css into your html 
+     3. if you want to flowbite : include css and javascript  using cdn

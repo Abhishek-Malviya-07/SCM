@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html th:replace="~{base::parent(~{::#content} , ~{::title})}">
+
+<head>
+  <title>Signup</title>
+</head>
+
+<body>
+  <div id="content">
+
+    <div class="grid grid-cols-12 mt-2">
+
+      <div class="col-span-4 md:col-span-2 lg:col-span-3 xl:col-span-4"></div>
+      <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4">
+        <div href="#"
+          class="block p-6 border-t-[10px] border-blue-600 bg-white   rounded-xl shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-blue-700 dark:hover:bg-gray-700">
+
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-400 dark:text-white">Signup Here</h5>
+          <p class="font-normal text-gray-700 dark:text-gray-400"> Start managing contacts on cloud.
+
+          </p>
+          <!--signup form-->
+          <form data-th-action="@{'/do-register'}" data-th-object="${userForm}" method="post" class="mt-6">
+            <!--Name-->
+            <div class="mb-3">
+              <label 
+                for="Name" 
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Name</label>
+              <input 
+                type="text" 
+                id="name"
+                data-th-field="*{name}"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Enter your Name" required />
+            </div>
+            <!---email field-->
+            <div class="mb-3">
+              <label 
+                for="email" 
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Email</label>
+              <input 
+                type="email" 
+                id="email"
+                data-th-field="*{email}"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="user@gmail.com" 
+                required />
+            </div>
+            <!--password-->
+            <div class="mb-3">
+              <label 
+                for="password" 
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                New Password</label>
+              <input
+                type="password"
+                data-th-field="*{password}"
+                id="password"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required />
+            </div>
+            <!--phone Number-->
+            <div class="mb-3">
+              <label 
+                for="phone"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Contact Number</label>
+              <input 
+                type="text" 
+                id="Phone"
+                data-th-field="*{phoneNumber}"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required />
+            </div>
+            <!--About field-->
+            <div class="mb-3">
+              <label 
+                 for="about" 
+                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                 Write Something about yourself.....</label>
+              <textarea 
+                id="about" 
+                data-th-field="*{about}"
+                rows="4"
+                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="">
+              </textarea>
+            </div>
+            <!--Button-->
+            <div class="mb-3 flex justify-center space-x-3">
+              <button 
+                type="Submit"
+                class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                SignUp</button>
+              <button 
+                type="Reset"
+                class="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
+                Reset</button>
+            </div>
+        </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</body>
+
+</html>
