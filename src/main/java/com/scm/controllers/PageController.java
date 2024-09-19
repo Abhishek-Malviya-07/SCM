@@ -3,6 +3,7 @@ package com.scm.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,7 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.scm.entities.User;
 import com.scm.forms.UserForm;
+import com.scm.helpers.Message;
+import com.scm.helpers.MessageType;
 import com.scm.services.UserService;
+
+import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 
 
@@ -62,27 +68,39 @@ public class PageController {
     }
 
     @PostMapping("/do-register")
-    public String processRegister(@ModelAttribute UserForm userForm){
+    public String processRegister(@Valid @ModelAttribute UserForm userForm , BindingResult bindingResult , HttpSession session){
         //fetch form data
         //user form
         System.out.println(userForm);
         // validate form data
+
+        if(bindingResult.hasErrors()){
+        
+            return "register";
+        }
         //save to databse
 
-        //userService
-      // user form se data nikal kr user me dala he
-        User user = User.builder()
-        .name(userForm.getName())
-        .email(userForm.getEmail())
-        .password(userForm.getPassword())
-        .phoneNumber(userForm.getPhoneNumber())
-        .about(userForm.getAbout())
-        .profilePic("/static/images/progilepic.png")
+        User user = new User();
+        user.setName(userForm.getName());
+        user.setEmail(userForm.getEmail());
+        user.setPassword(userForm.getPassword());
+        user.setAbout(userForm.getAbout());
+        user.setPhoneNumber(userForm.getPhoneNumber());
+        user.setProfilePic("/static/images/progilepic.png");
+        User savedUser =  userService.saveUser(user);
+        System.out.println("User is Saved");
+
+        Message message = Message.builder()
+        .content("Registration Successful")
+        .type(MessageType.blue)  // You can omit this line to use the default blue type
         .build();
+       
+        session.setAttribute("message", message);
+
         
-       User Saveduser =  userService.saveUser(user);
-       System.out.println("User is Saved");
-       return "redirect:/login";
-    }
+
+        //rediret to another page
+        return "redirect:/register";
+    } 
     
 }
